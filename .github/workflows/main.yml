@@ -1,0 +1,26 @@
+
+on: [push]
+
+jobs:
+  compile_document:
+    runs-on: ubuntu-latest
+    name: A job to say hello for test
+    container:
+      image: ghcr.io/rpgstuff-pingo/dnd-5e-latex-action:latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: ls
+        run: ls
+
+      - name: ls tex root
+        run: ls /root/
+
+      - name: pwd
+        run: pwd
+
+      - name: xelatex
+        run: xelatex characters/dagmar.tex
+             xelatex characters/nonamedruid.tex
